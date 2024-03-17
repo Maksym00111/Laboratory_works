@@ -1,0 +1,1400 @@
+/*Обнуление*/
+*{
+    color: #351F21;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 18px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+/*----------Fonts----------*/
+
+@font-face {
+    font-family: Source-sans-pro-regular;
+    src: url(Fonts/Source-Sans-Pro/sourcesanspro.ttf);
+}
+
+@font-face {
+    font-family: Source-sans-pro-light;
+    src: url(Fonts/Source-Sans-Pro/sourcesansprolight.ttf);
+}
+
+@font-face {
+    font-family: Source-sans-pro-Semi-Bold;
+    src: url(Fonts/Source-Sans-Pro/sourcesansprosemibold.ttf);
+}
+
+@font-face {
+    font-family: Lora-regular;
+    src: url(Fonts/Lora/Lora-Regular.ttf);
+}
+
+h1{
+    font-family: Lora-regular;
+    font-size: 24px;
+}
+
+h2{
+    font-family: Lora-regular;
+    font-size: 20px;
+}
+
+h3{
+    font-family: Lora-regular;
+    font-size: 16px;
+}
+
+p{
+    font-family: Source-sans-pro-regular;
+    font-size: 14px;
+}
+
+/*---------Header-----------*/
+
+.burger-menu{
+    display: none;
+}
+
+.menu-btn{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 17px;
+    left:28px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.menu-btn > span,
+.menu-btn > span::before,
+.menu-btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transition-duration: .25s;
+}
+.menu-btn > span::before {
+    content: '';
+    top: -8px;
+}
+.menu-btn > span::after {
+    content: '';
+    top: 8px;
+}
+
+.menubox{
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: #ECEFF1;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+    transition-duration: .25s;
+}
+
+.menu-item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+}
+.menu-item:hover {
+    background-color: #CFD8DC;
+}
+
+
+#menu-toggle{
+    opacity: 0;
+}
+
+#menu-toggle:checked ~ .menu-btn > span{
+    transform: rotate(45deg);
+}
+#menu-toggle:checked ~ .menu-btn > span::before{
+    top: 0;
+    transform: rotate(0);
+}
+#menu-toggle:checked ~ .menu-btn > span::after{
+    top: 0;
+    transform: rotate(90deg);
+}
+#menu-toggle:checked ~ .menubox{
+    visibility: visible;
+    left: 0;
+}
+
+
+
+.wrapper{
+    margin: 0 9% 0 9%;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header{
+    background-color: #A9BFE4;
+    width: 100%;
+    height: 71px;
+    text-align: center;
+}
+
+header ul{
+    display: flex;
+}
+
+header ul li a{
+    color: white;
+    font-family: Lora-regular;
+    font-weight: bold;
+    font-size: 14px;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    
+}
+
+header .menu li a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+header .menu li a:hover::before {
+    width: 100%;
+}
+
+header ul li{
+    transition: all 0.3s ease-in-out;
+}
+
+header ul li:hover{
+    transform: scale(1.1);
+    
+}
+
+header ul li img{
+    width: 22px;
+}
+.logo{
+    width: 134px;
+}
+
+.menu{
+    margin: 0 64px 0 64px;
+}
+
+.menu li:not(:first-child){
+    margin-left: 10px;
+}
+
+.shopping li:not(:first-child){
+    margin-left: 10px;
+}
+
+/*---------Section1-----------*/
+
+.Section1-img{
+    display: none;
+}
+
+.Section1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    margin-left: 9%;
+}
+
+.Sub-Header{
+    display: flex;
+    flex-direction: column;
+    max-width: 285px;
+}
+
+.Sub-Header p{
+    margin-top: 16px;
+}
+
+.Sub-Header .Buttons{
+    margin-top: 24px;
+    font-family: Source-sans-pro-Semi-Bold;
+    font-size: 13px;
+}
+
+.Sub-Header .Buttons button{
+    padding: 8px 0;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.Sub-Header .Buttons button a{
+    padding: 8px 40px;
+}
+
+.Buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.in-the-basket a{
+    color: white;
+    
+}
+.in-the-basket{
+    background-color: #FFC2C7;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+.to-the-catalog a{
+    color: #9EA4C7;
+    transition: all 0.3s ease-in-out;
+}
+
+.to-the-catalog{
+    background-color: white;
+    border: 2px solid #FFC2C7;
+}
+
+.Section1 img{
+    min-width: 383px;
+    max-width: 50%;
+}
+
+.in-the-basket:hover{
+    transform: scale(1.1);
+    background-color: #A9BFE4;
+}
+
+.to-the-catalog:hover{
+    transform: scale(1.1);
+    border-color: #9EA4C7;
+}
+
+.to-the-catalog a:hover{
+    color: #FFC2C7;
+}
+
+/*---------Section2-----------*/
+
+.Section2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 145px;
+    margin: 35px 9% 0 9%;
+}
+
+.Section2-wrapper{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.Section2 .bouquets{
+    background-image: url("Images/Photo\ of\ flowers\(leonardo\).jpg");
+    background-size: cover;
+    min-width: 210px;
+    min-height: 145px;
+    width: 27vw;
+    height: 18vw;
+}
+
+.Section2 .fresh-flowers{
+    background-image: url("Images/Image\ of\ flowers\(leonardo\).jpg");
+    background-size: cover;
+    min-width: 210px;
+    min-height: 145px;
+    width: 27vw;
+    height: 18vw;
+}
+
+.Section2 .your-bouquet{
+    background-image: url("Images/Photo\ of\ computer\(leonardo\).jpg");
+    background-size: cover;
+    min-width: 210px;
+    min-height: 145px;
+    width: 27vw;
+    height: 18vw;
+}
+
+.Section2 button a{
+    color: white;
+    font-family: Lora-regular;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.Section2 button{
+    background-color: #A9BFE4;
+    /*margin: 50% 19% 5% 20%;*/
+    margin-bottom: 7px;
+    transition: all 0.3s ease-in-out;
+}
+
+.Section2 .Section2-wrapper div{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.Section2 button:hover{
+    transform: scale(1.1);
+}
+
+.Section2 .bouquets button{
+    padding: 6px 0;
+}
+
+.Section2 .bouquets button a{
+    padding: 6px 40px;
+}
+
+.Section2 .fresh-flowers button{
+    padding: 6px 0;
+}
+
+.Section2 .fresh-flowers button a{
+    padding: 6px 26px;
+}
+
+.Section2 .your-bouquet button{
+    padding: 6px 0;
+}
+
+.Section2 .your-bouquet button a{
+    padding: 6px 22px;
+}
+
+/*---------Section3-----------*/
+
+.Section3{
+    margin: 45px 0 0 9%;
+
+}
+
+.Section3 p{
+    margin-top: 11px;
+    padding-left: 17px;
+    min-width: 302px;
+}
+
+.Section3-text{
+    max-width: 40%;
+}
+
+.describing-flowers{
+    padding-top: 4px;
+}
+
+.Section3-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Section3-wrapper .girls{
+    background-image: url(Images/Girls.png);
+    background-size: cover;
+    min-width: 333px;
+    min-height: 192px;
+    width: 43vw;
+    height: 24.8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.Section3 a{
+    display: block;
+    height: 10%;
+    width: 6%;
+    margin-bottom: 5%;
+    margin-right: 8.5%;
+}
+
+/*---------Section4-----------*/
+
+.Section4-wrapper{
+    margin: 0 9%;
+}
+.Section4 p{
+    font-size: 11px;
+    min-width: 130px;
+    width: 16vw;
+    text-align: center;
+    margin-top: 11px;
+    padding-bottom: 16px;
+}
+
+.Section4{
+    /*
+    background-image: url(Images/Background.png);
+    background-size: cover;
+    */
+    background-color: rgba(169, 191, 228, 0.29);
+    width: 100%;
+}
+
+.Section4 img{
+    min-height: 54px;
+    height: 6.9vw;
+}
+
+.Section4-img-wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 17px;
+}
+
+.Section4-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Section4 h3{
+    color:#989EC3;
+    padding-top: 10px;
+}
+
+/*---------Section5-----------*/
+
+.Section5{
+    margin: 45px 9% 0 9%;
+}
+
+.Section5 img{
+    min-width: 157px;
+    width: 25.78125vw;
+}
+
+.Section5-card-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 7px;
+}
+
+.Section5 .card{
+    min-width: 157px;
+    width: 25.78125vw;
+    min-height: 329px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    -webkit-box-shadow: 0px 2px 4px 2px rgba(255,194,199,0.5); 
+    box-shadow: 0px 2px 4px 2px rgba(255,194,199,0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+.Section5 .card:hover{
+    transform: scale(1.05);
+}
+
+.Section5 .card p{
+    text-align: center;
+    width: 20.8vw;
+}
+
+.Name-of-card{
+    font-family: Lora-regular;
+    margin-top: 4%;
+}
+
+.card-button a{
+    padding: 9px 41px;
+    color: #9EA4C7;
+    border-radius: 20px;
+}
+
+.card-button{
+    font-family: Source-sans-pro-Semi-Bold;
+    padding: 9px 0;
+    border-radius: 20px;
+    border: 2px solid #FFC2C7;
+    background-color: white;
+    margin: 6.5% 0 0 0;
+}
+
+.price{
+    margin-top: 6.5%;
+}
+
+.Image-of-Slider{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
+
+#Image-of-Slider{
+    width: 13vw;
+}
+
+/*---------Section6-----------*/
+
+.Section6{
+    background-image: url(Images/Section6\ Background\ \(2\).png);
+    background-size: cover;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.Section6-wrapper{
+    margin: 0 9% 0 9%;
+    padding-top: 23px;
+}
+
+.Section6 img{
+    width: 13vw;
+    min-width: 100px;
+}
+
+.Section6 .comment:first-child{
+    margin-top: 22px;
+}
+
+.Section6 .comment:not(:first-child){
+    margin-top: 44px;
+}
+
+.comment{
+    display: flex;
+}
+
+.comment:not(:first-child){
+    padding-left: 18.8vw;
+}
+
+.Text-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 43.4vw;
+    min-width: 334px;
+    margin-left: 5.8vw;
+}
+
+.name{
+    font-family: Source-sans-pro-Semi-Bold;
+    font-size: 13px;
+    color: #989EC3;
+}
+
+.Section6 .Slider{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 27px;
+}
+
+.Section6 h2{
+    margin-top: 55px;
+}
+
+.Section6 form textarea{
+    font-family: Source-sans-pro-regular;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 7px 0 0 12px;
+    margin-top: 12px;
+}
+
+.Section6 form input:first-child{
+    font-family: Source-sans-pro-regular;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 7px 0 7px 12px;
+    margin-top: 15px;
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-wrapper form{
+    display: flex;
+    flex-direction: column;
+}
+
+.Section6 .Submit{
+    font-family: Source-sans-pro-Semi-Bold;
+    font-size: 13px;
+    color: white;
+    background-color: #FFC2C7;
+    padding: 8px 30px;
+    width: 130px;
+    height: 30px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    transition: all 0.3s ease-in-out;
+    margin: 15px 0 34px 0;
+}
+
+.Section6 .Submit:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+/*---------Section7-----------*/
+
+.Section7{
+    margin: 43px 9% 0 9%;
+}
+
+.Section7 h1{
+    margin-bottom: 25px;
+}
+
+.Section7-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Section7-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 188px;
+    width: 24.4vw;
+}
+
+.Section7-card div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 8.46vw;
+    height: 8.46vw;
+    -webkit-box-shadow: 2px 3px 4px 0px rgba(255,194,199,1);
+    -moz-box-shadow: 2px 3px 4px 0px rgba(255,194,199,1);
+    box-shadow: 2px 3px 4px 0px rgba(255,194,199,1);
+}
+
+.Section7-card div p{
+    font-family: Lora-regular;
+    font-size: 40px;
+    color: #A9BFE4;
+}
+
+.Section7-card-text{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 18px;
+}
+
+.Section7-card:not(:first-child):not(:nth-child(2)):not(:nth-child(3)){
+    margin-top: 35px;
+}
+
+/*---------Footer-----------*/
+
+footer{
+    margin-top: 66px;
+    background-image: url(Images/Footer\ background.png);
+    background-size: cover;
+}
+
+footer a{
+    font-family: Source-sans-pro-light;
+    font-size: 11px;
+    color: white;
+}
+
+footer h4{
+    color: white;
+    font-family: Lora-regular;
+    font-size: 14px;
+}
+
+footer p{
+    color: white;
+    font-family: Source-sans-pro-light;
+    font-size: 11px;
+}
+
+footer form{
+    width: 30.7vw;
+}
+
+footer form input:first-child{
+    padding: 7px 0 7px 10px;
+    max-width: 176px;
+    width: 22.9vw;
+    font-family: Source-sans-pro-regular;
+    font-size: 10px;
+    border-radius: 20px;
+}
+
+footer form input:last-child{
+    padding: 7px 18px;
+    font-family: Source-sans-pro-regular;
+    font-size: 10px;
+    border-radius: 20px;
+    color: white;
+    background-color: #FFC2C7;
+    position: absolute;
+    margin-left: -29px;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer-wrapper{
+    margin: 0 9% 0 9%;
+    padding: 4px 0 13px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-contacts-wrapper{
+    width: 100%;
+    display: flex; 
+    align-items: flex-start;
+    margin-top: 9px;
+}
+
+.footer-contacts-wrapper div:not(.Social-media, .Wrap){
+    display: flex;
+    flex-direction: column;
+    min-width: 84px;
+    width: 10.9vw;
+}
+
+.Social-media{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 118px;
+    margin-top: 14px;
+}
+
+.Social-media a{
+    display: block;
+    width: 2.6vw;
+    height: 2.6vw;
+}
+
+.Social-media a:not(:first-child){
+    margin-left: 1.95vw;
+}
+
+.Social-media img{
+   
+    width: 2.6vw;
+    height: 2.6vw;
+}
+
+.Wrap{
+    width: 43.4vw;
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-form{
+    margin-left: 7vw;
+}
+
+.Copyright{
+    margin-top: 20px;
+}
+
+footer form input:last-child:hover{
+    background-color: #A9BFE4;
+    border: 1px solid white;
+}
+
+footer a:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+footer a{
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+@media (max-width: 720px) {
+    /*******Header*******/
+    .burger-menu{
+        display: block;
+    }
+
+    .menu, .shopping{
+        display: none;
+    }
+
+    header .wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
+    header .logo{
+        width: 105px;
+        margin-top: -10px;
+    }
+
+    header{
+        height: 58px;
+    }
+
+    /*******Section1*******/
+
+    .Section1 img{
+        display: block;
+        min-width: 300px;
+        width: 83.7vw;
+    }
+
+    .Section1 .Section1-img2{
+        display: none;
+    }
+
+    .Section1{
+        margin-top: 0;
+        flex-direction: column;
+        margin-left: 0;
+    }
+
+    .Section1 .Buttons{
+        display: none;
+    }
+
+    .Section1 h1{
+        font-family: Source-sans-pro-Semi-Bold;
+        margin-top: 37px;
+    }
+
+    .Section1{
+        text-align: center;
+    }
+
+    /*******Section2*******/
+
+    .Section2-wrapper{
+        flex-direction: column;
+    }
+
+    .Section2 .Section2-wrapper div{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .Section2 button{
+        margin: 0;
+    }
+
+    .Section2 .bouquets{
+        min-width: 210px;
+        min-height: 145px;
+        width: 83.7vw;
+        height: 18vw;
+    }
+    
+    .Section2 .fresh-flowers{
+        min-width: 210px;
+        min-height: 145px;
+        width: 83.7vw;
+        height: 18vw;
+    }
+    
+    .Section2 .your-bouquet{
+        min-width: 335px;
+        min-height: 145px;
+        width: 83.7vw;
+        height: 18vw;
+    }
+
+    .Section2 button a{
+        font-family: Source-sans-pro-regular;
+        font-weight: normal;
+    }
+
+    /*******Section3*******/
+
+    .Section3 h1{
+        font-family: Source-sans-pro-Semi-Bold;
+    }
+
+    .Section3-wrapper{
+        display: block;
+    }
+
+    .Section3 a{
+        display: none;
+    }
+
+    .Section3-wrapper .girls{
+        background-image: url(Images/Girls2.png);
+        margin-left: 8.5%;
+        margin-top: 37px;
+    }
+
+    .Section3 p{
+        padding-left: 0;
+    }
+
+    /*******Section4*******/
+
+    .Section4-img-wrapper{
+        flex-wrap: wrap;
+    }
+
+    .Section4 h3{
+        font-family: Source-sans-pro-regular;
+    }
+
+    /*******Section5*******/
+
+    .card-button{
+        display: none;
+    }
+
+    .Section5 .card p{
+        width: 35vw;
+    }
+
+    .Section5 .card{
+        min-height: 250px;
+    }
+
+    .Section5 .Image-of-Slider{
+        display: none;
+    }
+
+    /*******Section6*******/
+
+    .Section6{
+        background-image: none;
+        background-color: rgb(169, 191, 228, 0.25);
+    }
+
+    .Section6 h1:first-child{
+        font-family: Source-sans-pro-Semi-Bold;
+    }
+
+    .Section6 h2{
+        font-family: Source-sans-pro-regular;
+    }
+
+    .Section6 img{
+        display: none;
+    }
+
+    .Text-wrapper{
+        margin: 0;
+    }
+
+    .comment:not(:first-child){
+        padding-left: 0;
+    }
+
+    .Section6 .comment:not(:first-child){
+        margin-top: 20px;
+    }
+
+    .Section6 .Slider{
+        display: none;
+    }
+
+    .Text-wrapper{
+        background-color: white;
+        padding: 12px;
+        flex-direction: column-reverse;
+        -webkit-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+        -moz-box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+        box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+    }
+
+    .Section6 p{
+        max-width: 300px;
+    }
+
+    .Section6 .name{
+        margin-bottom: 10px;
+    }
+
+    .Section6 form input:first-child{
+        border-radius: 0;
+    }
+
+    .Section6 form textarea{
+        border-radius: 0;
+    }
+
+    .Section6 .Submit{
+        border-radius: 0;
+    }
+
+    /*******Section7*******/
+
+    .Section7{
+        display: none;
+    }
+
+    /*******Footer*******/
+
+    footer .logo{
+        margin-top: 20px;
+    }
+
+    footer{
+        margin-top: 0;
+    }
+
+    footer form{
+        display: none;
+    }
+
+    footer .Social-media{
+        display: none;
+    }
+
+    footer .Copyright{
+        display: none;
+    }
+
+    .footer-wrapper{
+        flex-direction: column-reverse;
+    }
+
+    .Wrap{
+        width: 100%;
+    }
+
+    footer .Wrap a{
+        margin-top: 5px;
+    }
+
+    .footer-contacts-wrapper div:not(.Wrap, .Wrap div){
+        display: none;
+    }
+}
+
+@media (min-width: 1366px) and (max-width: 1980px) {
+    /*Fonts*/
+    h1{
+        font-family: Lora-regular;
+        font-size: 48px;
+    }
+    
+    h2{
+        font-family: Lora-regular;
+        font-size: 40px;
+    }
+    
+    h3{
+        font-family: Lora-regular;
+        font-size: 32px;
+    }
+    
+    p{
+        font-family: Source-sans-pro-regular;
+        font-size: 28px;
+    }
+
+    /*Header*/
+
+    header ul li a{
+        font-size: 28px;
+        
+    }
+
+    header .menu li a::before {
+        height: 2px;
+    }
+
+    .menu li:not(:first-child){
+        margin-left: 20px;
+    }
+    
+    .shopping li:not(:first-child){
+        margin-left: 20px;
+    }
+
+    header ul li img{
+        width: 44px;
+    }
+
+    .logo{
+        width: 268px;
+    }
+
+    header{
+        height: 142px;
+    }
+
+    /*Section1*/
+
+    .Sub-Header{
+        max-width: 570px;
+    }
+
+    .Sub-Header .Buttons{
+        font-size: 26px;
+    }
+    
+    .Sub-Header .Buttons button{
+        padding: 16px 0;
+        border-radius: 40px;
+        border-width: 4px;
+    }
+    
+    .Sub-Header .Buttons button a{
+        padding: 16px 80px;
+        font-size: 26px;
+    }
+
+    /*Section2*/
+
+    .Section2 button a{
+        font-size: 28px;
+    }
+    
+    .Section2 button{
+        margin-bottom: 14px;
+    }
+    
+    .Section2 .bouquets button{
+        padding: 12px 0;
+    }
+    
+    .Section2 .bouquets button a{
+        padding: 12px 80px;
+    }
+    
+    .Section2 .fresh-flowers button{
+        padding: 12px 0;
+    }
+    
+    .Section2 .fresh-flowers button a{
+        padding: 12px 52px;
+    }
+    
+    .Section2 .your-bouquet button{
+        padding: 12px 0;
+    }
+    
+    .Section2 .your-bouquet button a{
+        padding: 12px 44px;
+    }
+
+    /*Section4*/
+
+
+    .Section4 p{
+        font-size: 22px;
+        margin-top: 22px;
+    }
+
+    /*Section5*/
+
+    .card-button a{
+        padding: 18px 82px;
+        border-radius: 40px;
+        font-size: 26px;
+    }
+    
+    .card-button{
+        padding: 18px 0;
+        border-radius: 40px;
+        border-width: 4px;
+        margin-bottom: 20px;
+    }
+
+    .Section5 .card{
+        min-height: 329px;
+        height: 750px;
+    }
+
+    /*Section6*/
+
+    .Section6-wrapper{
+        padding-top: 46px;
+    }
+    
+    .Section6 .comment:first-child{
+        margin-top: 44px;
+    }
+    
+    .Section6 .comment:not(:first-child){
+        margin-top: 88px;
+    }
+    
+    .name{
+        font-size: 26px;
+    }
+    
+    .Section6 .Slider{
+        margin-top: 54px;
+    }
+    
+    .Section6 h2{
+        margin-top: 110px;
+    }
+    
+    .Section6 form textarea{
+        font-size: 24px;
+        border-radius: 20px;
+        padding: 14px 0 0 24px;
+        margin-top: 24px;
+    }
+    
+    .Section6 form input:first-child{
+        font-size: 24px;
+        border-radius: 20px;
+        padding: 14px 0 14px 24px;
+        margin-top: 30px;
+    }
+    
+    .Section6 .Submit{
+        font-size: 26px;
+        padding: 16px 60px;
+        width: 260px;
+        height: 60px;
+        border-radius: 40px;
+        margin: 30px 0 68px 0;
+    }
+
+    /*Section7*/
+
+    
+    .Section7 h1{
+        margin-bottom: 50px;
+    }
+    
+    .Section7-card div p{
+        font-size: 80px;
+    }
+    
+    .Section7-card-text{
+        font-size: 26px;
+        margin-top: 36px;
+    }
+    
+    .Section7-card:not(:first-child):not(:nth-child(2)):not(:nth-child(3)){
+        margin-top: 70px;
+    }
+
+    /*Footer*/
+
+    footer{
+        margin-top: 112px;
+    }
+    
+    footer a{
+        font-size: 22px;
+    }
+    
+    footer h4{
+        font-size: 28px;
+    }
+    
+    footer p{
+        font-size: 22px;
+    }
+    
+    footer form input:first-child{
+        padding: 14px 0 14px 20px;
+        max-width: 352px;
+        font-size: 20px;
+        border-radius: 40px;
+    }
+    
+    footer form input:last-child{
+        padding: 14px 36px;
+        font-size: 20px;
+        border-radius: 40px;
+        margin-left: -58px;
+    }
+    
+    .footer-wrapper{
+        padding: 8px 0 36px 0;
+    }
+    
+    .footer-contacts-wrapper{
+        margin-top: 18px;
+    }
+    
+    .footer-contacts-wrapper div:not(.Social-media, .Wrap){
+        min-width: 168px;
+    }
+    
+    .Social-media{
+        margin-left: 236px;
+        margin-top: 28px;
+    }
+    
+    .Copyright{
+        margin-top: 40px;
+    }
+}
